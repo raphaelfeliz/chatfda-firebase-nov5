@@ -8,17 +8,9 @@ import { ProgressTracker } from "./progress-tracker";
 export function Configurator() {
   const { currentState, sku, history, selectOption, reset } = useTriage();
 
-  const getBreadcrumbHistory = () => {
-    if (history.length === 0 && !sku) {
-        return [];
-    }
-    const fullHistory = ["Início", ...history];
-    return fullHistory;
-  }
-
   return (
     <div className="container mx-auto px-4 py-8 md:py-12">
-      <ProgressTracker history={getBreadcrumbHistory()} onReset={reset} />
+      <ProgressTracker history={history} onReset={reset} />
       {sku ? (
         <SkuDisplay sku={sku} onReset={reset} />
       ) : (

@@ -15,6 +15,10 @@ export function ProgressTracker({ history, onReset }: ProgressTrackerProps) {
         "mb-6"
       )}
     >
+      <Button variant="outline" size="sm" onClick={onReset} className="text-xs sm:text-sm">
+        <RefreshCw className="w-3 h-3 mr-1.5" />
+        Recomeçar
+      </Button>
       <div className="flex items-center gap-1 text-xs sm:text-sm text-muted-foreground flex-wrap">
         {history.length > 0 &&
           history.map((item, index) => (
@@ -32,10 +36,6 @@ export function ProgressTracker({ history, onReset }: ProgressTrackerProps) {
             </div>
           ))}
       </div>
-      <Button variant="outline" size="sm" onClick={onReset} className="text-xs sm:text-sm">
-        <RefreshCw className="w-3 h-3 mr-1.5" />
-        Recomeçar
-      </Button>
     </div>
   );
 }

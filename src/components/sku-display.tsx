@@ -19,6 +19,9 @@ type SkuDisplayProps = {
 export function SkuDisplay({ product, onReset }: SkuDisplayProps) {
   return (
     <div className="flex flex-col items-center justify-center">
+      <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
+        Produto encontrado
+      </h2>
       <Card className="w-full max-w-sm overflow-hidden shadow-xl bg-card border-border">
         <CardContent className="p-0">
           <div className="relative aspect-square w-full bg-white">
@@ -36,7 +39,7 @@ export function SkuDisplay({ product, onReset }: SkuDisplayProps) {
               {product.label}
             </p>
         </div>
-        <CardFooter className="grid grid-cols-2 gap-2 p-4">
+        <CardFooter className="grid grid-cols-1 gap-2 p-4">
           <Button size="lg" className="bg-primary hover:bg-primary/90">
             Ver Preço
           </Button>

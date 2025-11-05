@@ -19,10 +19,22 @@ export const useTriage = () => {
       if (!currentState) return;
       
       const selectedOption = currentState.options[index];
-      const newHistory = [...history, selectedOption.label];
+      
+      let labelForHistory = selectedOption.label;
+      if (
+        currentState.stateID === "askJanelaCorrerPersiana" ||
+        currentState.stateID === "askPortaCorrerPersiana"
+      ) {
+        if (selectedOption.value === "sim") {
+          labelForHistory = "Persiana";
+        } else if (selectedOption.value === "nao") {
+          labelForHistory = "";
+        }
+      }
+
+      const newHistory = [...history, labelForHistory].filter(Boolean);
       setHistory(newHistory);
       const result = machine.triage(index);
-
 
       if (result && "sku" in result) {
         setSku(result.sku);

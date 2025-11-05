@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import {
   Card,
@@ -7,13 +9,18 @@ import {
 import { Button } from "@/components/ui/button";
 import { MessageSquare } from "lucide-react";
 import type { Option } from "@/lib/triage";
+import { generateWhatsAppLink } from "@/lib/whatsapp";
 
 type SkuDisplayProps = {
   product: Option;
-  onReset: () => void;
 };
 
-export function SkuDisplay({ product, onReset }: SkuDisplayProps) {
+export function SkuDisplay({ product }: SkuDisplayProps) {
+  const handleWhatsAppClick = () => {
+    const link = generateWhatsAppLink(product.label);
+    window.open(link, '_blank');
+  }
+
   return (
     <div className="flex flex-col items-center justify-center">
       <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
@@ -40,7 +47,7 @@ export function SkuDisplay({ product, onReset }: SkuDisplayProps) {
           <Button size="lg" className="bg-primary hover:bg-primary/90">
             Ver Preço
           </Button>
-          <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white">
+          <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white" onClick={handleWhatsAppClick}>
             <MessageSquare className="mr-2 h-4 w-4" />
             Negociar no WhatsApp
           </Button>

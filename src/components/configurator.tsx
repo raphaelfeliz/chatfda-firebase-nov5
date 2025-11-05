@@ -14,7 +14,7 @@ export function Configurator() {
       <ProgressTracker history={history} onReset={reset} />
       {sku && finalProduct ? (
         <>
-          <SkuDisplay product={{...finalProduct, label: fullProductName}} onReset={reset} />
+          <SkuDisplay product={{...finalProduct, label: fullProductName}} />
         </>
       ) : currentState ? (
         <>

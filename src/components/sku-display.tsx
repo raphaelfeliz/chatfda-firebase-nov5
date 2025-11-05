@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import {
   Card,
   CardContent,
@@ -44,9 +45,11 @@ export function SkuDisplay({ product }: SkuDisplayProps) {
             </p>
         </div>
         <CardFooter className="grid grid-cols-1 gap-2 p-4">
-          <Button size="lg" className="bg-primary hover:bg-primary/90">
-            Ver Preço
-          </Button>
+          {product.url && (
+            <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
+              <Link href={product.url}>Ver Preço</Link>
+            </Button>
+          )}
           <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white" onClick={handleWhatsAppClick}>
             <MessageSquare className="mr-2 h-4 w-4" />
             Negociar no WhatsApp

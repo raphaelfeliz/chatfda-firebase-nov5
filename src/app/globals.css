@@ -14,19 +14,19 @@ body {
     --card-foreground: 210 40% 98%;
     --popover: 220 17% 18%;
     --popover-foreground: 210 40% 98%;
-    --primary: 250 50% 50%; /* Purple for selection */
+    --primary: 250 50% 65%; /* Lighter Purple for selection */
     --primary-foreground: 210 40% 98%;
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215.4 16.3% 56.9%;
-    --accent: 250 60% 65%; /* Lighter Purple for hover/accent */
+    --accent: 250 60% 75%; /* Lighter Purple for hover/accent */
     --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
     --border: 217.2 32.6% 25.5%; /* Brighter border for cards */
     --input: 217.2 32.6% 17.5%;
-    --ring: 250 50% 50%;
+    --ring: 250 50% 65%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
@@ -49,19 +49,19 @@ body {
     --card-foreground: 210 40% 98%;
     --popover: 220 17% 18%;
     --popover-foreground: 210 40% 98%;
-    --primary: 250 50% 50%; /* Purple for selection */
+    --primary: 250 50% 65%; /* Lighter Purple for selection */
     --primary-foreground: 210 40% 98%;
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215.4 16.3% 56.9%;
-    --accent: 250 60% 65%; /* Lighter Purple for hover/accent */
+    --accent: 250 60% 75%; /* Lighter Purple for hover/accent */
     --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
     --border: 217.2 32.6% 25.5%; /* Brighter border for cards */
     --input: 217.2 32.6% 17.5%;
-    --ring: 250 50% 50%;
+    --ring: 250 50% 65%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;

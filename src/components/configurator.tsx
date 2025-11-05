@@ -10,11 +10,11 @@ export function Configurator() {
 
   return (
     <div className="container mx-auto px-4 py-8 md:py-12">
+      <ProgressTracker history={history} onReset={reset} />
       {sku ? (
         <SkuDisplay sku={sku} onReset={reset} />
       ) : (
         <>
-          <ProgressTracker history={history} onReset={reset} />
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
             <span className="text-primary font-bold">Encontre Fácil:</span> {currentState.question}
           </h2>

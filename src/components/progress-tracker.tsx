@@ -8,24 +8,28 @@ type ProgressTrackerProps = {
 };
 
 export function ProgressTracker({ history, onReset }: ProgressTrackerProps) {
+  if (history.length === 0) {
+    return null;
+  }
+  
   return (
     <div
       className={cn(
-        "flex items-center justify-between mb-8 p-3 bg-card rounded-lg shadow-sm flex-wrap gap-4 transition-opacity duration-500",
+        "flex items-center justify-between mb-6 p-3 bg-card rounded-lg shadow-sm flex-wrap gap-2 md:gap-4 transition-opacity duration-500",
         history.length > 0 ? "opacity-100" : "opacity-0 h-0 p-0 m-0 border-0"
       )}
     >
-      <div className="flex items-center gap-1.5 text-sm text-muted-foreground flex-wrap">
+      <div className="flex items-center gap-1 text-xs sm:text-sm text-muted-foreground flex-wrap">
         <button
           onClick={onReset}
           className="flex items-center gap-1.5 hover:text-foreground transition-colors"
           aria-label="Voltar ao início"
         >
           <Home className="w-4 h-4" />
-          <span>Início</span>
+          <span className="hidden sm:inline">Início</span>
         </button>
         {history.map((item, index) => (
-          <div key={index} className="flex items-center gap-1.5">
+          <div key={index} className="flex items-center gap-1">
             <ChevronRight className="w-4 h-4 text-gray-400" />
             <span
               className={
@@ -39,8 +43,8 @@ export function ProgressTracker({ history, onReset }: ProgressTrackerProps) {
           </div>
         ))}
       </div>
-      <Button variant="outline" size="sm" onClick={onReset}>
-        <RefreshCw className="w-4 h-4 mr-2" />
+      <Button variant="outline" size="sm" onClick={onReset} className="text-xs sm:text-sm">
+        <RefreshCw className="w-3 h-3 mr-1.5" />
         Reiniciar
       </Button>
     </div>

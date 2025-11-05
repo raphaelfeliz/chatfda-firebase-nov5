@@ -10,24 +10,15 @@ export function Configurator() {
 
   return (
     <div className="container mx-auto px-4 py-8 md:py-12">
-      <header className="text-center mb-8">
-        <h1 className="text-4xl md:text-5xl font-bold font-headline text-primary-foreground/90">
-          Configurador de Produtos
-        </h1>
-        <p className="text-muted-foreground mt-2 text-lg">
-          Encontre a porta ou janela ideal para você respondendo algumas perguntas.
-        </p>
-      </header>
-
       {sku ? (
         <SkuDisplay sku={sku} onReset={reset} />
       ) : (
         <>
           <ProgressTracker history={history} onReset={reset} />
-          <h2 className="text-2xl md:text-3xl font-bold text-center text-foreground mb-8 font-headline">
-            {currentState.question}
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
+            <span className="text-primary font-bold">Encontre Fácil:</span> {currentState.question}
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 justify-center max-w-7xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
             {currentState.options.map((option, index) => (
               <OptionCard
                 key={option.value + index}

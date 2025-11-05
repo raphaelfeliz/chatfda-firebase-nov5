@@ -2,13 +2,10 @@ import Image from "next/image";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
-  CardHeader,
-  CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { RefreshCw, MessageSquare } from "lucide-react";
+import { MessageSquare } from "lucide-react";
 import type { Option } from "@/lib/triage";
 
 type SkuDisplayProps = {
@@ -49,10 +46,6 @@ export function SkuDisplay({ product, onReset }: SkuDisplayProps) {
           </Button>
         </CardFooter>
       </Card>
-       <Button onClick={onReset} variant="outline" className="mt-8">
-            <RefreshCw className="mr-2 h-4 w-4" />
-            Começar de Novo
-        </Button>
     </div>
   );
 }

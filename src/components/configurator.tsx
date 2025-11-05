@@ -6,7 +6,7 @@ import { SkuDisplay } from "./sku-display";
 import { ProgressTracker } from "./progress-tracker";
 
 export function Configurator() {
-  const { currentState, sku, history, selectOption, reset, finalProduct } =
+  const { currentState, sku, history, selectOption, reset, finalProduct, fullProductName } =
     useTriage();
 
   return (
@@ -14,10 +14,7 @@ export function Configurator() {
       <ProgressTracker history={history} onReset={reset} />
       {sku && finalProduct ? (
         <>
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center md:text-left">
-            Produto encontrado
-          </h2>
-          <SkuDisplay product={finalProduct} onReset={reset} />
+          <SkuDisplay product={{...finalProduct, label: fullProductName}} onReset={reset} />
         </>
       ) : currentState ? (
         <>

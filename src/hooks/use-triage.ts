@@ -11,6 +11,7 @@ export const useTriage = () => {
   );
   const [sku, setSku] = useState<string | null>(null);
   const [finalProduct, setFinalProduct] = useState<Option | null>(null);
+  const [fullProductName, setFullProductName] = useState<string>("");
   const [history, setHistory] = useState<string[]>([]);
 
   const selectOption = useCallback(
@@ -18,19 +19,21 @@ export const useTriage = () => {
       if (!currentState) return;
       
       const selectedOption = currentState.options[index];
+      const newHistory = [...history, selectedOption.label];
+      setHistory(newHistory);
       const result = machine.triage(index);
 
-      setHistory((prev) => [...prev, selectedOption.label]);
 
       if (result && "sku" in result) {
         setSku(result.sku);
         setFinalProduct(selectedOption);
+        setFullProductName(newHistory.join(" "));
         setCurrentState(null);
       } else if (result) {
         setCurrentState(result as QuestionState);
       }
     },
-    [machine, currentState]
+    [machine, currentState, history]
   );
 
   const reset = useCallback(() => {
@@ -39,7 +42,8 @@ export const useTriage = () => {
     setSku(null);
     setFinalProduct(null);
     setHistory([]);
+    setFullProductName("");
   }, [machine]);
 
-  return { currentState, sku, history, selectOption, reset, finalProduct };
+  return { currentState, sku, history, selectOption, reset, finalProduct, fullProductName };
 };
